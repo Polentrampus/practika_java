@@ -1,1 +1,6 @@
-Режим вывода команд на экран (ECHO) включен.
+node_modules/
+bin/
+.DS_Store
+
+*.log
+*.tmp
