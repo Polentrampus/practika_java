@@ -74,7 +74,7 @@ public class Main {
             System.out.println("=== Система управления отелем ===");
             System.out.println("\nВыберите режим работы:");
             System.out.println("1. Администратор");
-            System.out.println("2. Ресепшн");
+            System.out.println("2. Ресепшен");
             System.out.println("0. Выход");
 
             int choice = getIntInput(scanner, "Ваш выбор: ", 0, 2);

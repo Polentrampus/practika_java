@@ -20,7 +20,6 @@ public class Admin extends HotelEmployee{
                 '}';
     }
 
-
     @Override
     public String getPosition() {
         return "Админ";
