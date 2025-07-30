@@ -1,0 +1,66 @@
+package hotel.model.service;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Services {
+    private final String name;
+    private final String description;
+    private double price;
+
+    private static Map<String, Services> SERVICES =  new TreeMap<>(String.CASE_INSENSITIVE_ORDER);;
+    static {
+        addService("Хранение багажа", "Услуга хранения вашего багажа", 500.0);
+        addService("Заказ питания", "Доставка еды в номер", 1200.0);
+        addService("Трансфер", "Трансфер из/в аэропорт", 2500.0);
+        addService("Фитнес-центр", "Доступ в фитнес-центр", 800.0);
+        addService("Мини-бар", "В стоимость номера будет включен мини бар", 100.3);
+        addService("SPA", "Возможность посетить спа 3 раза за все время пребывание в отеле бесплатно", 0);
+        addService("Консьерж-сервис", "Консьерж-сервис", 0);
+        addService("Прачечная", "Использование прачечной", 200);
+
+    }
+    public static Map<String, Services> getSERVICES() {
+        return SERVICES;
+    }
+
+    public static void addService(String nameService, String description, double price){
+        SERVICES.put(nameService, new Services(nameService, description, price));
+    }
+
+    public static Services findService(String nameService){
+        if(SERVICES.containsKey(nameService)){
+            return SERVICES.get(nameService);
+        }
+        System.out.println("Такой услуги не существует!");
+        return null;
+    }
+
+    private Services(String name, String description, double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s: %s (Цена: %.2f руб.)", name, description, price);
+    }
+    public void removeService(String nameService){
+        SERVICES.remove(nameService);
+    }
+    public void setPrice(int newPrice) {
+        this.price = newPrice;
+    }
+}
